@@ -20,7 +20,7 @@ public class BancodeDados extends SQLiteOpenHelper {
                 "nome TEXT NOT NULL, " +
                 "saldo REAL NOT NULL, " +
                 "contato INTEGER, " +
-                "Responsavel INTEGER DEFAULT 0 CHECK(Responsavel IN (0,1))" +
+                "Responsavel BOOLEAN NOT NULL DEFAULT 0" +
                 ")";
         db.execSQL(Cliente);
 
