@@ -16,7 +16,8 @@ public class BancodeDados extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String Cliente = "CREATE TABLE IF NOT EXISTS TbCliente (" +
-                "_Matricula INTEGER PRIMARY KEY, " +
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Matricula INTEGER UNIQUE, " +
                 "nome TEXT NOT NULL, " +
                 "saldo REAL NOT NULL, " +
                 "contato INTEGER, " +
@@ -24,20 +25,45 @@ public class BancodeDados extends SQLiteOpenHelper {
                 ")";
         db.execSQL(Cliente);
 
-        String Produto = "CREATE TABLE IF NOT EXISTS TbProduto (" +
-                "_Codigo INTEGER PRIMARY KEY, " +
+        String Item = "CREATE TABLE IF NOT EXISTS TbItem (" +
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nome TEXT NOT NULL, " +
                 "valor REAL NOT NULL, " +
                 "estoque INTEGER NOT NULL" +
                 ")";
-        db.execSQL(Produto);
+        db.execSQL(Item);
 
         String Responsavel = "CREATE TABLE IF NOT EXISTS TbResponsavel (" +
-                "_Cpf INTEGER PRIMARY KEY, " +
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Cpf INTEGER UNIQUE, " +
                 "nome TEXT NOT NULL, " +
                 "responsavel_contato INTEGER NOT NULL" +
                 ")";
         db.execSQL(Responsavel);
+
+        String Cliente_Responsavel = "CREATE TABLE IF NOT EXISTS TbClienteResponsavel (" +
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Id_Cliente INTEGER NOT NULL, " +
+                "Id_Responsavel INTEGER NOT NULL, " +
+                "FOREIGN KEY (Id_Cliente) REFERENCES TbCliente(Id), " +
+                "FOREIGN KEY (Id_Responsavel) REFERENCES TbCliente(Id)" +
+                ")";
+        db.execSQL(Cliente_Responsavel);
+
+
+        String Vendas = "CREATE TABLE IF NOT EXISTS TbVendas (" +
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Id_Cliente INTEGER NOT NULL, " +
+                "Id_Item INTEGER NOT NULL, " +
+                "Quantidade INTEGER NOT NULL, " +
+                "Valor_Item INTEGER NOT NULL, " +
+                "Sub_Total INTEGER NOT NULL, " +
+                "Valor_Total INTEGER NOT NULL, " +
+                "FOREIGN KEY (Id_Cliente) REFERENCES TbCliente(Id), " +
+                "FOREIGN KEY (Id_Item) REFERENCES TbItem(Id)" +
+                ")";
+        db.execSQL(Vendas);
+
     }
 
     @Override
