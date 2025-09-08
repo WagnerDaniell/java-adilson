@@ -5,7 +5,7 @@ public class Cliente {
     private int matricula;
     private String nome;
     private double saldo;
-    private Long contato; // pode ser null
+    private Long contato;
     private boolean responsavel;
 
     // Getters e Setters
