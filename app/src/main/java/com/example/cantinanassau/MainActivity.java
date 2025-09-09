@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnCadastrar;
+    private Button btnCadastrar, btnBuscar, btnVendas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +18,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.pag_inicial);
 
         btnCadastrar = findViewById(R.id.buttonCadastro);
+        btnBuscar = findViewById(R.id.buttonBuscar);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Cadastro.class));
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MenuCadastro.class));
+            }
+        });
+
+        btnBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MenuBuscar.class));
             }
         });
     }

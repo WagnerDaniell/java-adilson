@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
-        android:text="Menu Principal"
+        android:text="Menu Cadastro"
         android:textColor="#2D3748"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,11 +46,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonBuscar"
+            android:id="@+id/buttonCadastroCliente"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
-            android:text="Buscar"
+            android:text="Cadastrar Cliente"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -60,11 +60,11 @@
             app:rippleColor="#2D3748" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonCadastro"
+            android:id="@+id/buttonCadastroProduto"
             android:layout_width="match_parent"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
-            android:text="Cadastro"
+            android:text="Cadastrar Produto"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -73,18 +73,7 @@
             app:elevation="4dp"
             app:rippleColor="#38A169" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonVendas"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:text="Vendas"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="#38A169"
-            app:cornerRadius="16dp"
-            app:elevation="4dp"
-            app:rippleColor="#2D3748" />
+
 
     </LinearLayout>
 

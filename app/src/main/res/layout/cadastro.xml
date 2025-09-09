@@ -1,137 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#FFFFFF">
+    android:background="#E5E7EB"
+    android:padding="32dp"
+    tools:context=".Cadastro">
 
     <TextView
-        android:id="@+id/txtTituloCliente"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastro de Cliente"
-        android:textSize="20sp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-light"
+        android:text="CantinaNassau"
+        android:textColor="#2D3748"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="24dp"
-        android:textColor="#000000" />
-
-    <EditText
-        android:id="@+id/edtMatriculaCliente"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Matrícula do Cliente"
-        android:inputType="text"
-        android:layout_marginBottom="16dp"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:textColor="#000000"
-        android:textColorHint="#666666" />
-
-    <EditText
-        android:id="@+id/edtNomeCliente"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nome do Cliente"
-        android:inputType="textCapWords"
-        android:layout_marginBottom="16dp"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:textColor="#000000"
-        android:textColorHint="#666666" />
-
-    <EditText
-        android:id="@+id/edtTelefone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Telefone"
-        android:inputType="phone"
-        android:layout_marginBottom="24dp"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:textColor="#000000"
-        android:textColorHint="#666666" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textViewSubtitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Faixa etária:"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp"
-        android:textColor="#000000" />
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Cadastro de Cliente"
+        android:textColor="#2D3748"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
 
-    <Spinner
-        android:id="@+id/ageSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
-        android:padding="12dp" />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSubtitle">
 
-    <LinearLayout
-        android:id="@+id/responsavelLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/txtTituloResponsavel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cadastro de Responsável"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:textColor="#000000" />
-
-        <EditText
-            android:id="@+id/edtCpfResponsavel"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CPF do Responsavel"
-            android:inputType="number"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:textColor="#000000"
-            android:textColorHint="#666666" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edtNomeResponsavel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome do Responsável"
-            android:inputType="textCapWords"
-            android:layout_marginBottom="16dp"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:textColor="#000000"
-            android:textColorHint="#666666" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp">
 
-        <EditText
-            android:id="@+id/edtTelefoneResponsavel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Telefone"
-            android:inputType="phone"
-            android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:textColor="#000000"
-            android:textColorHint="#666666" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtMatriculaCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Matrícula do Cliente"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:textColor="#2D3748"
+                    android:textColorHint="#666666" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp">
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar"
-        android:layout_marginTop="24dp"
-        android:textColor="#FFFFFF"
-        android:background="#FF6200EE" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNomeCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nome do Cliente"
+                    android:inputType="textCapWords"
+                    android:padding="16dp"
+                    android:textColor="#2D3748"
+                    android:textColorHint="#666666" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTelefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Telefone"
+                    android:inputType="phone"
+                    android:padding="16dp"
+                    android:textColor="#2D3748"
+                    android:textColorHint="#666666" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Faixa etária:"
+                android:textColor="#2D3748"
+                android:textSize="16sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:boxBackgroundColor="#FFFFFF"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/ageSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:backgroundTint="#2D3748" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/responsavelLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Cadastro de Responsável"
+                    android:textColor="#2D3748"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:boxBackgroundColor="#FFFFFF"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusTopStart="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCpfResponsavel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="CPF do Responsável"
+                        android:inputType="number"
+                        android:padding="16dp"
+                        android:textColor="#2D3748"
+                        android:textColorHint="#666666" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:boxBackgroundColor="#FFFFFF"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusTopStart="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNomeResponsavel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nome do Responsável"
+                        android:inputType="textCapWords"
+                        android:padding="16dp"
+                        android:textColor="#2D3748"
+                        android:textColorHint="#666666" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    app:boxBackgroundColor="#FFFFFF"
+                    app:boxCornerRadiusBottomEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusTopStart="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtTelefoneResponsavel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Telefone do Responsável"
+                        android:inputType="phone"
+                        android:padding="16dp"
+                        android:textColor="#2D3748"
+                        android:textColorHint="#666666" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="24dp"
+                android:text="Cadastrar"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="#38A169"
+                app:cornerRadius="16dp"
+                app:elevation="4dp"
+                app:rippleColor="#2D3748" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
