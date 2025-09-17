@@ -1,10 +1,17 @@
 package com.example.cantinanassau.Models;
 
 public class Item {
+
     private int id;
     private String nome;
     private double valor;
     private int estoque;
+
+    public Item(String nome, double valor, int estoque) {
+        this.nome = nome;
+        this.valor = valor;
+        this.estoque = estoque;
+    }
 
     // Getters e Setters
     public int getId() { return id; }

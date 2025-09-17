@@ -6,14 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.cantinanassau.Models.Cliente;
-import com.example.cantinanassau.Models.ClienteResponsavel;
 import com.example.cantinanassau.Models.Item;
-import com.example.cantinanassau.Models.Responsavel;
 import com.example.cantinanassau.Models.Venda;
 
 public class BancodeDados extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "MeuBanco.db";
+    private static final String DATABASE_NAME = "MeuBanco1.db";
     private static final int DATABASE_VERSION = 1;
 
     public BancodeDados(Context context) {
@@ -27,8 +25,7 @@ public class BancodeDados extends SQLiteOpenHelper {
                 "Matricula INTEGER UNIQUE, " +
                 "Nome TEXT NOT NULL, " +
                 "Saldo REAL NOT NULL, " +
-                "Contato INTEGER, " +
-                "Responsavel BOOLEAN NOT NULL DEFAULT 0" +
+                "Contato INTEGER " +
                 ")";
         db.execSQL(Cliente);
 
@@ -39,24 +36,6 @@ public class BancodeDados extends SQLiteOpenHelper {
                 "Estoque INTEGER NOT NULL" +
                 ")";
         db.execSQL(Item);
-
-        String Responsavel = "CREATE TABLE IF NOT EXISTS TbResponsavel (" +
-                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "Cpf INTEGER UNIQUE, " +
-                "Nome TEXT NOT NULL, " +
-                "Responsavel_Contato INTEGER NOT NULL" +
-                ")";
-        db.execSQL(Responsavel);
-
-        String Cliente_Responsavel = "CREATE TABLE IF NOT EXISTS TbClienteResponsavel (" +
-                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "Id_Cliente INTEGER NOT NULL, " +
-                "Id_Responsavel INTEGER NOT NULL, " +
-                "FOREIGN KEY (Id_Cliente) REFERENCES TbCliente(Id), " +
-                "FOREIGN KEY (Id_Responsavel) REFERENCES TbCliente(Id)" +
-                ")";
-        db.execSQL(Cliente_Responsavel);
-
 
         String Vendas = "CREATE TABLE IF NOT EXISTS TbVendas (" +
                 "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -76,8 +55,8 @@ public class BancodeDados extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS TbCliente");
-        db.execSQL("DROP TABLE IF EXISTS TbProduto");
-        db.execSQL("DROP TABLE IF EXISTS TbResponsavel");
+        db.execSQL("DROP TABLE IF EXISTS TbItem");
+        db.execSQL("DROP TABLE IF EXISTS TbVendas");
         onCreate(db);
     }
 
@@ -90,48 +69,27 @@ public class BancodeDados extends SQLiteOpenHelper {
         values.put("Nome", cliente.getNome());
         values.put("Saldo", cliente.getSaldo());
         values.put("Contato", cliente.getContato());
-        values.put("Responsavel", cliente.isResponsavel());
 
         db.insert("TbCliente", null, values);
         db.close();
     }
 
-    public void insertItem(Item item){
+    public boolean insertItem(Item item){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put("Id", item.getId());
         values.put("Nome", item.getNome());
         values.put("Valor", item.getValor());
         values.put("Estoque", item.getEstoque());
 
-        db.insert("TbItem", null, values);
+        long result = db.insert("TbItem", null, values);
         db.close();
-    }
 
-    public void insertResponsavel(Responsavel responsavel){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put("Id", responsavel.getId());
-        values.put("Cpf", responsavel.getCpf());
-        values.put("Nome", responsavel.getNome());
-        values.put("ResponsavelContato", responsavel.getResponsavelContato());
-
-        db.insert("TbResponsavel", null, values);
-        db.close();
-    }
-
-    public void insertClienteResponsavel(ClienteResponsavel clienteResponsavel){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put("Id", clienteResponsavel.getId());
-        values.put("IdCliente", clienteResponsavel.getIdCliente());
-        values.put("IdResponsavel", clienteResponsavel.getIdResponsavel());
-
-        db.insert("TbClienteResponsavel", null, values);
-        db.close();
+        if (result != -1){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void insertVenda(Venda venda){

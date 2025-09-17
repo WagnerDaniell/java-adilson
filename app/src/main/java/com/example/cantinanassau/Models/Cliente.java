@@ -6,7 +6,6 @@ public class Cliente {
     private String nome;
     private double saldo;
     private Long contato;
-    private boolean responsavel;
 
     // Getters e Setters
     public int getId() { return id; }
@@ -23,7 +22,4 @@ public class Cliente {
 
     public Long getContato() { return contato; }
     public void setContato(Long contato) { this.contato = contato; }
-
-    public boolean isResponsavel() { return responsavel; }
-    public void setResponsavel(boolean responsavel) { this.responsavel = responsavel; }
 }
