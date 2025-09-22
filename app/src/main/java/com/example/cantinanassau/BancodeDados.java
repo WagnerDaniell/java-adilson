@@ -11,7 +11,7 @@ import com.example.cantinanassau.Models.Venda;
 
 public class BancodeDados extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "MeuBanco1.db";
+    private static final String DATABASE_NAME = "MeuBanco2.db";
     private static final int DATABASE_VERSION = 1;
 
     public BancodeDados(Context context) {
@@ -22,7 +22,7 @@ public class BancodeDados extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String Cliente = "CREATE TABLE IF NOT EXISTS TbCliente (" +
                 "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "Matricula INTEGER UNIQUE, " +
+                "Cpf INTEGER UNIQUE, " +
                 "Nome TEXT NOT NULL, " +
                 "Saldo REAL NOT NULL, " +
                 "Contato INTEGER " +
@@ -31,7 +31,7 @@ public class BancodeDados extends SQLiteOpenHelper {
 
         String Item = "CREATE TABLE IF NOT EXISTS TbItem (" +
                 "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "Nome TEXT NOT NULL, " +
+                "Nome TEXT UNIQUE NOT NULL, " +
                 "Valor REAL NOT NULL, " +
                 "Estoque INTEGER NOT NULL" +
                 ")";
@@ -60,18 +60,24 @@ public class BancodeDados extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertCliente(Cliente cliente){
+    public boolean insertCliente(Cliente cliente){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put("Id", cliente.getId());
-        values.put("Matricula", cliente.getMatricula());
+        values.put("Cpf", cliente.getCpf());
         values.put("Nome", cliente.getNome());
         values.put("Saldo", cliente.getSaldo());
         values.put("Contato", cliente.getContato());
 
-        db.insert("TbCliente", null, values);
+        long result = db.insert("TbCliente", null, values);
         db.close();
+
+        if (result != -1){
+            return true; //Deu certo!
+        }else{
+            return false;
+        }
     }
 
     public boolean insertItem(Item item){
@@ -86,7 +92,7 @@ public class BancodeDados extends SQLiteOpenHelper {
         db.close();
 
         if (result != -1){
-            return true;
+            return true; //Deu certo!
         }else{
             return false;
         }

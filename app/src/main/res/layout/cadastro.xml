@@ -1,121 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E5E7EB"
-    android:padding="32dp"
-    tools:context=".Cadastro">
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="sans-serif-light"
-        android:text="CantinaNassau"
-        android:textColor="#2D3748"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Cadastro de Cliente"
-        android:textColor="#2D3748"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+    android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="0dp"
+        android:id="@+id/rqvcmbh2k2ss"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewSubtitle">
+        android:layout_weight="1"
+        android:background="#FFFFFF">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <LinearLayout
+                android:id="@+id/rnqj56flje0s"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/se6e6e6sw2"
+                android:paddingVertical="3dp"
                 android:layout_marginBottom="16dp"
-                app:boxBackgroundColor="#FFFFFF"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp">
-            </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/rig972sbeq3"
+                    android:textColor="#4A4A4A"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="&lt;"
+                    />
+            </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/rf5l3y69iko"
+                android:textColor="#4A4A4A"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="15dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Cadastro do Cliente"
+                />
+
+            <TextView
+                android:id="@+id/r0ohsl6nyqzjq"
+                android:textColor="#4A4A4A"
+                android:textSize="12sp"
+                android:layout_marginBottom="37dp"
+                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Complete seu cadastro e aproveite nossos serviços"
+                />
+
+            <LinearLayout
+                android:id="@+id/rqiz0vjsqiue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:boxBackgroundColor="#FFFFFF"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp">
-
-                <com.google.android.material.textfield.TextInputEditText
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/rwcz85m3hd3g"
+                    android:textColor="#4A4A4A"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Nome"
+                    />
+                <EditText
+                    android:inputType="text"
+                    android:hint="Nome do cliente"
                     android:id="@+id/edtNomeCliente"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nome do Cliente"
-                    android:inputType="textCapWords"
-                    android:padding="16dp"
-                    android:textColor="#2D3748"
-                    android:textColorHint="#666666" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:background="@drawable/s7a7a7asw1cr10bffffff"
+                    android:paddingVertical="12dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="26dp"
+                    />
+            </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <LinearLayout
+                android:id="@+id/riuvefqincs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:boxBackgroundColor="#FFFFFF"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtTelefone"
+                android:layout_marginBottom="15dp"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/rginlbtbbu9n"
+                    android:textColor="#4A4A4A"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Cpf"
+                    />
+                <EditText
+                    android:inputType="text"
+                    android:hint="000.000.000-00"
+                    android:id="@+id/edtCpf"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Telefone"
-                    android:inputType="phone"
-                    android:padding="16dp"
-                    android:textColor="#2D3748"
-                    android:textColorHint="#666666" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:background="@drawable/s7a7a7asw1cr10bffffff"
+                    android:paddingVertical="12dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="26dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rbg88ibbwpzi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="232dp"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/rqlyf6hmo1eh"
+                    android:textColor="#4A4A4A"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Telefone"
+                    />
+                <EditText
+                    android:inputType="text"
+                    android:hint="(XX) XXXX-XXXX"
+                    android:id="@+id/edtTelefone"
+                    android:textColor="#7A7A7A"
+                    android:textSize="14sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/s7a7a7asw1cr10bffffff"
+                    android:paddingVertical="12dp"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="26dp"
+                    />
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submitButton"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:layout_marginTop="24dp"
-                android:text="Cadastrar"
+                android:layout_marginHorizontal="16dp"
+                android:text="CADASTRAR"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:backgroundTint="#38A169"
+                app:backgroundTint="#F44336"
                 app:cornerRadius="16dp"
                 app:elevation="4dp"
                 app:rippleColor="#2D3748" />
         </LinearLayout>
     </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

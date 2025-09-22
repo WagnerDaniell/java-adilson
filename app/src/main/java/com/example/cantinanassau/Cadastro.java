@@ -11,7 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cantinanassau.Models.Cliente;
+import com.example.cantinanassau.Models.Item;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +26,8 @@ public class Cadastro extends AppCompatActivity {
 
     private EditText edtNomeCliente;
     private EditText edtTelefone;
-
+    private EditText edtCpf;
+    private BancodeDados Database;
     private Button submitButton;
 
     private List<EditText> clientFields = new ArrayList<>();
@@ -31,10 +38,13 @@ public class Cadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro);
 
+        Database = new BancodeDados(this);
+
         // Inicializar componentes
 
         edtNomeCliente = findViewById(R.id.edtNomeCliente);
         edtTelefone = findViewById(R.id.edtTelefone);
+        edtCpf = findViewById(R.id.edtCpf);//CAMPO NOVA AJEITA AE SIDNEY
         submitButton = findViewById(R.id.submitButton);
 
 
@@ -62,6 +72,8 @@ public class Cadastro extends AppCompatActivity {
 
         // Validar campos inicialmente
         validateFields();
+
+        submitButton.setOnClickListener(v -> addNewCliente());
     }
 
     private void validateFields() {
@@ -85,6 +97,43 @@ public class Cadastro extends AppCompatActivity {
         } else {
             submitButton.setBackgroundColor(Color.parseColor("#CCCCCC")); // Cinza
         }
-
     }
+
+    public void addNewCliente(){
+        String nomeCliente = edtNomeCliente.getText().toString().trim(); //.trim remove espaços extras
+        String telefoneCliente = edtTelefone.getText().toString().trim();
+        String cpfCliente = edtCpf.getText().toString().trim();
+
+        // Só posso verificar se está vazio se tranformar tudo em string
+        if (nomeCliente.isEmpty() || telefoneCliente.isEmpty() || cpfCliente.isEmpty()) {
+            Toast.makeText(this, "Por favor, preencha todos os campos!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        long telefoneDoCliente;
+        int cpfDoCliente;
+        int saldoCliente = 0;
+
+        try {
+            telefoneDoCliente = Integer.parseInt(telefoneCliente);
+            cpfDoCliente = Integer.parseInt(cpfCliente);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Valor ou estoque inválido!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Cliente newCliente = new Cliente(cpfDoCliente, nomeCliente, saldoCliente ,telefoneDoCliente);
+
+        boolean result = Database.insertCliente(newCliente);
+
+        if(result){
+            Toast.makeText(this, "Cliente cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Erro ao cadastrar o Cliente!", Toast.LENGTH_SHORT).show();
+        }
+
+    };
+
+
+
 }

@@ -35,11 +35,28 @@ public class CadastroProdutos extends AppCompatActivity {
     }
 
     public void addNewItem (){
-        String nomeItem = edtNomeProduto.getText().toString();
-        double valorItem = Double.parseDouble(edtValorProduto.getText().toString());
-        int estoqueItem = Integer.parseInt(edtEstoque.getText().toString());
+        String nomeItem = edtNomeProduto.getText().toString().trim(); //.trim remove espaços extras
+        String valorItem = edtValorProduto.getText().toString().trim();
+        String estoqueItem = edtEstoque.getText().toString().trim();
 
-        Item newItem = new Item(nomeItem, valorItem, estoqueItem);
+        // Só posso verificar se está vazio se tranformar tudo em string
+        if (nomeItem.isEmpty() || valorItem.isEmpty() || estoqueItem.isEmpty()) {
+            Toast.makeText(this, "Por favor, preencha todos os campos!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        double valorDoItem;
+        int estoqueDoItem;
+
+        try {
+            valorDoItem = Double.parseDouble(valorItem);
+            estoqueDoItem = Integer.parseInt(estoqueItem);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "Valor ou estoque inválido!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Item newItem = new Item(nomeItem, valorDoItem, estoqueDoItem);
 
         boolean result = Database.insertItem(newItem);
 
