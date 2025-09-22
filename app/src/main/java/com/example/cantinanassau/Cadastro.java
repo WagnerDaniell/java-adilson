@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.TextView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class Cadastro extends AppCompatActivity {
     private EditText edtCpf;
     private BancodeDados Database;
     private Button submitButton;
+    private TextView btnVoltar;
 
 
     private List<EditText> clientFields = new ArrayList<>();
@@ -48,6 +50,7 @@ public class Cadastro extends AppCompatActivity {
         edtTelefone = findViewById(R.id.edtTelefone);
         edtCpf = findViewById(R.id.edtCpf);//CAMPO NOVA AJEITA AE SIDNEY
         submitButton = findViewById(R.id.submitButton);
+        btnVoltar = findViewById(R.id.btnvoltar);
 
 
         // Adicionar campos à lista de campos do cliente
@@ -72,13 +75,24 @@ public class Cadastro extends AppCompatActivity {
             });
         }
 
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                voltarParaTelaAnterior();
+            }
+        });
+
         // Validar campos inicialmente
         validateFields();
 
         submitButton.setOnClickListener(v -> addNewCliente());
     }
 
-    private void validateFields() {
+    private void voltarParaTelaAnterior() {
+        finish();
+    }
+
+        private void validateFields() {
         boolean allClientFieldsFilled = true;
 
         // Verificar se todos os campos do cliente estão preenchidos

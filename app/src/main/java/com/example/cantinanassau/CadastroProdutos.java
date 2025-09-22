@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +20,7 @@ public class CadastroProdutos extends AppCompatActivity {
     private EditText edtEstoque;
     private Button submitButton;
     private BancodeDados Database;
+    private TextView btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +31,24 @@ public class CadastroProdutos extends AppCompatActivity {
         edtValorProduto = findViewById(R.id.edtValorProduto);
         edtEstoque = findViewById(R.id.edtEstoque);
         submitButton = findViewById(R.id.submitButton);
+        btnVoltar = findViewById(R.id.btnvoltar);
 
         Database = new BancodeDados(this);
 
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                voltarParaTelaAnterior();
+            }
+        });
+
         submitButton.setOnClickListener(v -> addNewItem());
     }
+    private void voltarParaTelaAnterior() {
+        finish();
+    }
 
-    public void addNewItem (){
+        public void addNewItem (){
         String nomeItem = edtNomeProduto.getText().toString().trim(); //.trim remove espaços extras
         String valorItem = edtValorProduto.getText().toString().trim();
         String estoqueItem = edtEstoque.getText().toString().trim();
@@ -66,6 +80,8 @@ public class CadastroProdutos extends AppCompatActivity {
             Toast.makeText(this, "Erro ao adicionar o produto!", Toast.LENGTH_SHORT).show();
         }
 
+
     };
+
 
 }
