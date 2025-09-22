@@ -28,7 +28,7 @@
                 android:layout_marginBottom="16dp"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/rig972sbeq3"
+                    android:id="@+id/btnvoltar"
                     android:textColor="#4A4A4A"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -130,7 +130,7 @@
                 android:id="@+id/rbg88ibbwpzi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="232dp"
+                android:layout_marginBottom="420dp"
                 android:layout_marginHorizontal="16dp"
                 android:orientation="vertical">
                 <TextView

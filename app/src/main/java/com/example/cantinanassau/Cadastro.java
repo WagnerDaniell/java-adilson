@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cantinanassau.Models.Cliente;
@@ -29,6 +30,7 @@ public class Cadastro extends AppCompatActivity {
     private EditText edtCpf;
     private BancodeDados Database;
     private Button submitButton;
+
 
     private List<EditText> clientFields = new ArrayList<>();
 
@@ -93,7 +95,7 @@ public class Cadastro extends AppCompatActivity {
 
         // Mudar a cor do botão conforme o estado
         if (submitButton.isEnabled()) {
-            submitButton.setBackgroundColor(Color.parseColor("#FF6200EE")); // Roxo
+            submitButton.setBackgroundColor(Color.parseColor("#FF3F56")); // Vermelho
         } else {
             submitButton.setBackgroundColor(Color.parseColor("#CCCCCC")); // Cinza
         }
