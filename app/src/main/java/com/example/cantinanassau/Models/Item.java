@@ -13,6 +13,10 @@ public class Item {
         this.estoque = estoque;
     }
 
+    public Item() {
+
+    }
+
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

@@ -111,14 +111,14 @@ public class Cadastro extends AppCompatActivity {
         }
 
         long telefoneDoCliente;
-        int cpfDoCliente;
-        int saldoCliente = 0;
+        long cpfDoCliente;
+        double saldoCliente = 0;
 
         try {
-            telefoneDoCliente = Integer.parseInt(telefoneCliente);
-            cpfDoCliente = Integer.parseInt(cpfCliente);
+            telefoneDoCliente = Long.parseLong(telefoneCliente);
+            cpfDoCliente = Long.parseLong(cpfCliente);
         } catch (NumberFormatException e) {
-            Toast.makeText(this, "Valor ou estoque inválido!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "CPF ou telefone inválido!", Toast.LENGTH_SHORT).show();
             return;
         }
 

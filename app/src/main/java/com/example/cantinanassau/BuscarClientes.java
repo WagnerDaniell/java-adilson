@@ -12,8 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cantinanassau.Models.Cliente;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class BuscarClientes extends AppCompatActivity {
@@ -21,9 +22,9 @@ public class BuscarClientes extends AppCompatActivity {
     private EditText edtBusca;
     private RecyclerView rvClientes;
     private LinearLayout layoutDetalhes;
-    private TextView tvNome, tvTelefone, tvMatricula, tvResponsavel;
+    private TextView tvNome, tvContato, tvCpf, tvSaldo;
 
-    private List<Cliente> clientesMock;
+    private List<Cliente> listaClientes;
     private ClienteAdapter adapter;
 
     @Override
@@ -31,27 +32,24 @@ public class BuscarClientes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buscar_clientes);
 
-        edtBusca = findViewById(R.id.edtBuscaCliente);
-        rvClientes = findViewById(R.id.rvListaClientes);
+        edtBusca       = findViewById(R.id.edtBuscaCliente);
+        rvClientes     = findViewById(R.id.rvListaClientes);
         layoutDetalhes = findViewById(R.id.layoutDetalhesCliente);
-        tvNome = findViewById(R.id.tvNomeCliente);
-        tvTelefone = findViewById(R.id.tvTelefone);
-        tvMatricula = findViewById(R.id.tvMatricula);
-        tvResponsavel = findViewById(R.id.tvResponsavel);
+        tvNome         = findViewById(R.id.tvNomeCliente);
+        tvContato      = findViewById(R.id.tvTelefone);
+        tvCpf          = findViewById(R.id.tvMatricula);
+        tvSaldo        = findViewById(R.id.tvResponsavel);
 
-        // Dados falsos para teste
-        clientesMock = Arrays.asList(
-                new Cliente("Maria Oliveira", "(11) 99999-1111", "MAT123", "João Oliveira"),
-                new Cliente("Pedro Santos", "(21) 98888-2222", "MAT456", "Ana Santos"),
-                new Cliente("João da Silva", "(31) 97777-3333", "MAT789", "Carlos da Silva")
-        );
+        // ======== BUSCA NO BANCO ========
+        BancodeDados db = new BancodeDados(this);
+        listaClientes = db.getClientes();
 
-        // Configuração do RecyclerView
+        // ======== CONFIGURAÇÃO DO RECYCLER ========
         rvClientes.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ClienteAdapter(new ArrayList<>(clientesMock), cliente -> mostrarDetalhes(cliente));
+        adapter = new ClienteAdapter(new ArrayList<>(listaClientes),
+                cliente -> mostrarDetalhes(cliente));
         rvClientes.setAdapter(adapter);
 
-        // Filtrar conforme digita
         edtBusca.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
@@ -62,9 +60,10 @@ public class BuscarClientes extends AppCompatActivity {
         });
     }
 
+    // ===== FILTRO DE CLIENTES =====
     private void filtrarClientes(String texto) {
         List<Cliente> filtrados = new ArrayList<>();
-        for (Cliente c : clientesMock) {
+        for (Cliente c : listaClientes) {
             if (c.getNome().toLowerCase().contains(texto.toLowerCase())) {
                 filtrados.add(c);
             }
@@ -75,8 +74,8 @@ public class BuscarClientes extends AppCompatActivity {
     private void mostrarDetalhes(Cliente c) {
         layoutDetalhes.setVisibility(View.VISIBLE);
         tvNome.setText(c.getNome());
-        tvTelefone.setText(c.getTelefone());
-        tvMatricula.setText("Matrícula: " + c.getMatricula());
-        tvResponsavel.setText("Responsável: " + c.getResponsavel());
+        tvContato.setText("Contato: " + c.getContato());
+        tvCpf.setText("CPF: " + c.getCpf());
+        tvSaldo.setText("Saldo: R$ " + c.getSaldo());
     }
 }

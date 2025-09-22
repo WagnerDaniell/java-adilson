@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/tvNomeItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome do Produto"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvValorItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor: R$ 0,00"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvEstoqueItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estoque: 0"
+        android:textSize="14sp" />
+
+</LinearLayout>

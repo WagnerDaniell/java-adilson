@@ -2,6 +2,7 @@ package com.example.cantinanassau;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,9 +10,12 @@ import com.example.cantinanassau.Models.Cliente;
 import com.example.cantinanassau.Models.Item;
 import com.example.cantinanassau.Models.Venda;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BancodeDados extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "MeuBanco2.db";
+    private static final String DATABASE_NAME = "MeuBanco3.db";
     private static final int DATABASE_VERSION = 1;
 
     public BancodeDados(Context context) {
@@ -64,7 +68,6 @@ public class BancodeDados extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put("Id", cliente.getId());
         values.put("Cpf", cliente.getCpf());
         values.put("Nome", cliente.getNome());
         values.put("Saldo", cliente.getSaldo());
@@ -114,4 +117,62 @@ public class BancodeDados extends SQLiteOpenHelper {
         db.close();
     }
 
+    public List<Cliente> getClientes() {
+        List<Cliente> clientes = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query(
+                "TbCliente",
+                null,
+                null, null,
+                null, null,
+                "Nome ASC"
+        );
+
+        while (c.moveToNext()) {
+            Cliente cli = new Cliente();
+            cli.setId(c.getInt(c.getColumnIndexOrThrow("Id")));
+            cli.setCpf(c.getLong(c.getColumnIndexOrThrow("Cpf")));
+            cli.setNome(c.getString(c.getColumnIndexOrThrow("Nome")));
+            cli.setSaldo(c.getDouble(c.getColumnIndexOrThrow("Saldo")));
+            cli.setContato(c.getLong(c.getColumnIndexOrThrow("Contato")));
+
+            clientes.add(cli);
+        }
+
+        c.close();
+        db.close();
+
+        return clientes;
+    }
+
+    public List<Item> getProdutos() {
+        List<Item> produtos = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query(
+                "TbItem",
+                null,
+                null, null,
+                null, null,
+                "Nome ASC"
+        );
+
+        while (c.moveToNext()) {
+            Item item = new Item();
+            item.setId(c.getInt(c.getColumnIndexOrThrow("Id")));
+            item.setNome(c.getString(c.getColumnIndexOrThrow("Nome")));
+            item.setValor(c.getDouble(c.getColumnIndexOrThrow("Valor")));
+            item.setEstoque(c.getInt(c.getColumnIndexOrThrow("Estoque")));
+
+            produtos.add(item);
+        }
+
+        c.close();
+        db.close();
+
+        return produtos;
+    }
 }
