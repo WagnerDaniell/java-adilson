@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E7EB"
+    android:padding="32dp"
+    tools:context=".Vendas">
+
+    <!-- Título da tela -->
+    <TextView
+        android:id="@+id/tvTituloVendas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Nova Venda"
+        android:textColor="#2D3748"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo de busca do cliente -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutBuscaClienteVenda"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloVendas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtBuscaClienteVenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Selecionar cliente"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#2D3748"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Spinner de produtos -->
+    <Spinner
+        android:id="@+id/spinnerProdutos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@id/inputLayoutBuscaClienteVenda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Spinner de métodos de pagamento -->
+    <Spinner
+        android:id="@+id/spinnerPagamento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@id/spinnerProdutos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Container do carrinho de compras -->
+    <LinearLayout
+        android:id="@+id/layoutCarrinho"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:padding="16dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerPagamento"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layoutTotalVenda">
+
+        <!-- Lista de itens do carrinho -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItensCarrinho"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:background="@android:color/transparent"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"/>
+        <!--
+            Cada item do RecyclerView deve exibir:
+            - Nome do produto
+            - Seletor de quantidade (ex: NumberPicker ou botões +/-)
+            - Subtotal do produto
+        -->
+    </LinearLayout>
+
+    <!-- Total e botão de venda -->
+    <LinearLayout
+        android:id="@+id/layoutTotalVenda"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tvTotalVenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total: R$ 0,00"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2D3748"
+            android:fontFamily="sans-serif-light"
+            android:gravity="end" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVender"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:text="Vender"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#38A169"
+            app:cornerRadius="16dp"
+            app:elevation="4dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

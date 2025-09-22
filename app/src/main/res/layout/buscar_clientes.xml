@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E7EB"
+    android:padding="32dp"
+    tools:context=".BuscarClientes">
+
+    <!-- Título da tela -->
+    <TextView
+        android:id="@+id/tvTituloClientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Clientes"
+        android:textColor="#2D3748"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo de busca -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutBusca"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloClientes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtBuscaCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Buscar cliente"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#2D3748"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Lista de clientes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListaClientes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/inputLayoutBusca"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layoutDetalhesCliente"/>
+
+    <!-- Detalhes do cliente selecionado -->
+    <LinearLayout
+        android:id="@+id/layoutDetalhesCliente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tvNomeCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do Cliente"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#2D3748"
+            android:fontFamily="sans-serif-light" />
+
+        <TextView
+            android:id="@+id/tvTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(xx) xxxxx-xxxx"
+            android:textColor="#2D3748"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-light" />
+
+        <TextView
+            android:id="@+id/tvMatricula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matrícula: 12345"
+            android:textColor="#2D3748"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-light" />
+
+        <TextView
+            android:id="@+id/tvResponsavel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Responsável: Fulano de Tal"
+            android:textColor="#2D3748"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-light" />
+
+        <TextView
+            android:id="@+id/tvHistoricoTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histórico de Compras"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#2D3748"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-light" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHistoricoCompras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:overScrollMode="never"/>
+
+        <!-- Botões de ação -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNovaVenda"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Nova venda"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="#38A169"
+                app:cornerRadius="16dp"
+                app:elevation="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditarCliente"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:text="Editar"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="#2D3748"
+                app:cornerRadius="16dp"
+                app:elevation="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

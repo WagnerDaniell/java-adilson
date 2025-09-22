@@ -25,7 +25,9 @@
         <activity android:name=".MenuBuscar" />
         <activity android:name=".MenuCadastro" />
         <activity android:name=".CadastroProdutos" />
-
+        <activity android:name=".BuscarClientes" />
+        <activity android:name=".BuscarProdutos" />
+        <activity android:name=".Vendas" />
     </application>
 
 </manifest>

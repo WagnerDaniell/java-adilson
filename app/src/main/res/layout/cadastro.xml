@@ -58,16 +58,6 @@
                 app:boxCornerRadiusBottomStart="16dp"
                 app:boxCornerRadiusTopEnd="16dp"
                 app:boxCornerRadiusTopStart="16dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtMatriculaCliente"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Matrícula do Cliente"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:textColor="#2D3748"
-                    android:textColorHint="#666666" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -111,114 +101,6 @@
                     android:textColor="#2D3748"
                     android:textColorHint="#666666" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="sans-serif-light"
-                android:text="Faixa etária:"
-                android:textColor="#2D3748"
-                android:textSize="16sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:boxBackgroundColor="#FFFFFF"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp">
-
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/ageSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:backgroundTint="#2D3748" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:id="@+id/responsavelLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Cadastro de Responsável"
-                    android:textColor="#2D3748"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:boxBackgroundColor="#FFFFFF"
-                    app:boxCornerRadiusBottomEnd="16dp"
-                    app:boxCornerRadiusBottomStart="16dp"
-                    app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtCpfResponsavel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="CPF do Responsável"
-                        android:inputType="number"
-                        android:padding="16dp"
-                        android:textColor="#2D3748"
-                        android:textColorHint="#666666" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:boxBackgroundColor="#FFFFFF"
-                    app:boxCornerRadiusBottomEnd="16dp"
-                    app:boxCornerRadiusBottomStart="16dp"
-                    app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtNomeResponsavel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Nome do Responsável"
-                        android:inputType="textCapWords"
-                        android:padding="16dp"
-                        android:textColor="#2D3748"
-                        android:textColorHint="#666666" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    app:boxBackgroundColor="#FFFFFF"
-                    app:boxCornerRadiusBottomEnd="16dp"
-                    app:boxCornerRadiusBottomStart="16dp"
-                    app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtTelefoneResponsavel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Telefone do Responsável"
-                        android:inputType="phone"
-                        android:padding="16dp"
-                        android:textColor="#2D3748"
-                        android:textColorHint="#666666" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/submitButton"

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnCadastrar = findViewById(R.id.buttonCadastro);
         btnBuscar = findViewById(R.id.buttonBuscar);
+        btnVendas = findViewById(R.id.buttonVendas);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MenuBuscar.class));
+            }
+        });
+
+        btnVendas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, Vendas.class));
             }
         });
     }
