@@ -54,7 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
                 <LinearLayout
                     android:paddingTop="16dp"
                     android:paddingBottom="389dp"
@@ -75,6 +74,13 @@
                         android:paddingVertical="11dp"
                         android:translationX="14dp">
 
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@android:drawable/ic_menu_search"
+                            android:tint="#7A7A7A"
+                            android:layout_marginEnd="8dp"/>
+
                         <EditText
                             android:id="@+id/edtBuscaCliente"
                             android:layout_width="0dp"
@@ -88,11 +94,7 @@
                             android:textSize="14sp" />
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginHorizontal="30dp"
-                        android:background="#8C3033" />
+
 
                     <!-- Lista de clientes -->
                     <androidx.recyclerview.widget.RecyclerView

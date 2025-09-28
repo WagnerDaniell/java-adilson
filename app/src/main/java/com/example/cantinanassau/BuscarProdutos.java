@@ -29,6 +29,7 @@ public class BuscarProdutos extends AppCompatActivity {
 
     private List<Item> listaProdutos;
     private ProdutoAdapter adapter;
+    private TextView btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +37,16 @@ public class BuscarProdutos extends AppCompatActivity {
         setContentView(R.layout.buscar_produtos);
 
         // Referências da tela
-        edtBusca      = findViewById(R.id.edtBuscaProduto);
-        rvProdutos    = findViewById(R.id.rvListaProdutos);
-        layoutDetalhes= findViewById(R.id.layoutDetalhesProduto);
-        tvNome        = findViewById(R.id.tvNomeProduto);
-        tvValor       = findViewById(R.id.tvValorProduto);
-        tvEstoque     = findViewById(R.id.tvEstoqueProduto);
+        edtBusca       = findViewById(R.id.edtBuscaProduto);
+        rvProdutos     = findViewById(R.id.rvListaProdutos);
+        layoutDetalhes = findViewById(R.id.layoutDetalhesProduto);
+        tvNome         = findViewById(R.id.tvNomeProduto);
+        tvValor        = findViewById(R.id.tvValorProduto);
+        tvEstoque      = findViewById(R.id.tvEstoqueProduto);
+        btnVoltar      = findViewById(R.id.btnvoltar);
+
+        // Clique no botão voltar
+        btnVoltar.setOnClickListener(v -> voltarParaTelaAnterior());
 
         // ======== BUSCA NO BANCO ========
         BancodeDados db = new BancodeDados(this);
@@ -64,6 +69,11 @@ public class BuscarProdutos extends AppCompatActivity {
         });
     }
 
+    // ===== MÉTODO DE VOLTAR =====
+    private void voltarParaTelaAnterior() {
+        finish();
+    }
+
     // ===== FILTRO DE PRODUTOS =====
     private void filtrarProdutos(String texto) {
         List<Item> filtrados = new ArrayList<>();
@@ -79,7 +89,7 @@ public class BuscarProdutos extends AppCompatActivity {
     private void mostrarDetalhes(Item i) {
         layoutDetalhes.setVisibility(View.VISIBLE);
         tvNome.setText(i.getNome());
-        tvValor.setText("Valor: R$ " + i.getValor());
+        tvValor.setText("R$ " + i.getValor());
         tvEstoque.setText("Estoque: " + i.getEstoque());
     }
 
@@ -110,7 +120,7 @@ public class BuscarProdutos extends AppCompatActivity {
         public void onBindViewHolder(@NonNull ProdutoViewHolder holder, int position) {
             Item item = produtos.get(position);
             holder.tvNome.setText(item.getNome());
-            holder.tvValor.setText("Valor: R$ " + item.getValor());
+            holder.tvValor.setText("R$ " + item.getValor());
             holder.tvEstoque.setText("Estoque: " + item.getEstoque());
 
             holder.itemView.setOnClickListener(v -> listener.onItemClick(item));

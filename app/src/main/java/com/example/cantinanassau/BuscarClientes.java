@@ -67,7 +67,7 @@ public class BuscarClientes extends AppCompatActivity {
 
     // ===== BOTÃO VOLTAR =====
     private void voltarParaTelaAnterior() {
-        finish(); // fecha a tela atual e volta
+        finish();
     }
 
     // ===== FILTRO DE CLIENTES =====

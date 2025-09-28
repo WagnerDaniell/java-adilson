@@ -1,78 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E5E7EB"
-    android:padding="32dp"
-    tools:context=".BuscarProdutos">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <!-- Título da tela -->
-    <TextView
-        android:id="@+id/tvTituloProdutos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:text="Produtos"
-        android:textColor="#2D3748"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!-- HEADER -->
+    <!-- Top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#FF3F56"
+        android:gravity="center"
+        android:padding="16dp">
 
-    <!-- Campo de busca -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutBuscaProduto"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:boxCornerRadiusTopStart="12dp"
-        app:boxCornerRadiusTopEnd="12dp"
-        app:boxCornerRadiusBottomStart="12dp"
-        app:boxCornerRadiusBottomEnd="12dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloProdutos"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtBuscaProduto"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/btnvoltar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Buscar produto"
-            android:fontFamily="sans-serif-light"
-            android:textColor="#2D3748"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginEnd="98dp"
+            android:text="&lt;"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <!-- Lista de produtos -->
+        <TextView
+            android:id="@+id/tvTituloClientes"
+            android:layout_width="193dp"
+            android:layout_height="wrap_content"
+            android:text="Produtos"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <!-- CAMPO DE BUSCA -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/search_background"
+        android:layout_margin="16dp"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@android:drawable/ic_menu_search"
+            android:tint="#7A7A7A"
+            android:layout_marginEnd="8dp"/>
+
+        <EditText
+            android:id="@+id/edtBuscaProduto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Buscar produto"
+            android:background="@null"
+            android:textColor="#2D3748"
+            android:textSize="14sp"
+            android:padding="0dp"/>
+    </LinearLayout>
+
+    <!-- LISTA DE PRODUTOS -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListaProdutos"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@id/inputLayoutBuscaProduto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/layoutDetalhesProduto"/>
+        android:layout_weight="1"
+        android:background="@android:color/transparent"/>
 
-    <!-- Detalhes do produto selecionado -->
+    <!-- DETALHES DO PRODUTO -->
     <LinearLayout
         android:id="@+id/layoutDetalhesProduto"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/white"
+        android:background="#FFFFFF"
         android:elevation="4dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/tvNomeProduto"
@@ -81,8 +90,7 @@
             android:text="Nome do Produto"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#2D3748"
-            android:fontFamily="sans-serif-light" />
+            android:textColor="#2D3748"/>
 
         <TextView
             android:id="@+id/tvValorProduto"
@@ -90,8 +98,7 @@
             android:layout_height="wrap_content"
             android:text="Valor: R$ 0,00"
             android:textColor="#2D3748"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif-light" />
+            android:layout_marginTop="4dp"/>
 
         <TextView
             android:id="@+id/tvEstoqueProduto"
@@ -99,31 +106,20 @@
             android:layout_height="wrap_content"
             android:text="Estoque: 0"
             android:textColor="#2D3748"
-            android:layout_marginTop="4dp"
-            android:fontFamily="sans-serif-light" />
+            android:layout_marginTop="4dp"/>
 
-        <!-- Botões de ação -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Botão Editar -->
+        <TextView
+            android:id="@+id/btnEditarProduto"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="16dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEditarProduto"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_weight="1"
-                android:layout_marginStart="12dp"
-                android:text="Editar"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#2D3748"
-                app:cornerRadius="16dp"
-                app:elevation="4dp" />
-        </LinearLayout>
+            android:text="Editar"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingVertical="6dp"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button_background"/>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
