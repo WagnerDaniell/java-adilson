@@ -6,7 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.cantinanassau.Models.Cliente;
 
 import java.util.List;
@@ -29,14 +31,20 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ClienteV
     @Override
     public ClienteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
+                .inflate(R.layout.item_cliente, parent, false);
         return new ClienteViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ClienteViewHolder holder, int position) {
         Cliente c = clientes.get(position);
-        holder.textView.setText(c.getNome());
+        holder.tvNome.setText(c.getNome());
+
+        // aplica a cor configurada no colors.xml
+        holder.tvNome.setTextColor(
+                ContextCompat.getColor(holder.itemView.getContext(), R.color.corNomeCliente)
+        );
+
         holder.itemView.setOnClickListener(v -> listener.onItemClick(c));
     }
 
@@ -51,10 +59,10 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ClienteV
     }
 
     static class ClienteViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView tvNome;
         ClienteViewHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(android.R.id.text1);
+            tvNome = itemView.findViewById(R.id.tvNomeClienteItem);
         }
     }
 }

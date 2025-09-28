@@ -23,6 +23,7 @@ public class BuscarClientes extends AppCompatActivity {
     private RecyclerView rvClientes;
     private LinearLayout layoutDetalhes;
     private TextView tvNome, tvContato, tvCpf, tvSaldo;
+    private TextView btnVoltar;
 
     private List<Cliente> listaClientes;
     private ClienteAdapter adapter;
@@ -39,6 +40,10 @@ public class BuscarClientes extends AppCompatActivity {
         tvContato      = findViewById(R.id.tvTelefone);
         tvCpf          = findViewById(R.id.tvMatricula);
         tvSaldo        = findViewById(R.id.tvResponsavel);
+        btnVoltar      = findViewById(R.id.btnvoltar);
+
+        // Clique no botão voltar
+        btnVoltar.setOnClickListener(v -> voltarParaTelaAnterior());
 
         // ======== BUSCA NO BANCO ========
         BancodeDados db = new BancodeDados(this);
@@ -58,6 +63,11 @@ public class BuscarClientes extends AppCompatActivity {
                 filtrarClientes(s.toString());
             }
         });
+    }
+
+    // ===== BOTÃO VOLTAR =====
+    private void voltarParaTelaAnterior() {
+        finish(); // fecha a tela atual e volta
     }
 
     // ===== FILTRO DE CLIENTES =====
