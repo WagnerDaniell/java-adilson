@@ -4,25 +4,23 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFFFFF"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
-    android:elevation="2dp">
-
+    android:background="?android:attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/tvNomeClienteItem"
+        android:id="@+id/tvNomeItemCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:gravity="start|center_vertical"
-        android:padding="12dp"
-        android:text="Nome do Cliente"
-        android:textColor="@color/corNomeCliente"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:translationX="-30dp" />
+        android:textColor="@android:color/black"
+        android:text="Nome do Cliente" />
 
-
+    <TextView
+        android:id="@+id/tvCpfItemCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:text="CPF: 000.000.000-00" />
 
 </LinearLayout>
