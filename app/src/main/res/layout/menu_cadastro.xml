@@ -1,80 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E5E7EB"
-    android:padding="32dp"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:fontFamily="sans-serif-light"
-        android:text="CantinaNassau"
-        android:textColor="#2D3748"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Scroll para caber em qualquer tela -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textViewSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Menu Cadastro"
-        android:textColor="#2D3748"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonCadastroCliente"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            android:text="Cadastrar Cliente"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="#38A169"
-            app:cornerRadius="16dp"
-            app:elevation="4dp"
-            app:rippleColor="#2D3748" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonCadastroProduto"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
-            android:text="Cadastrar Produto"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="#2D3748"
-            app:cornerRadius="16dp"
-            app:elevation="4dp"
-            app:rippleColor="#38A169" />
+            <!-- Imagem -->
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="506dp"
+                android:layout_height="463dp"
+                android:layout_marginBottom="32dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo"
+                android:translationX="-50dp"
+                android:translationY="-30dp" />
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="CantinaNassau"
+                android:textColor="#FF3F56"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:translationX="-95dp"
+                android:translationY="-50dp" />
+
+            <!-- Subtítulo -->
+            <TextView
+                android:id="@+id/textViewSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:text="Menu de Cadastro"
+                android:textColor="#4A4A4A"
+                android:textSize="20sp"
+                android:translationX="-95dp"
+                android:translationY="-50dp" />
+
+            <!-- Linha com Buscar e Cadastro -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp">
 
 
+            </LinearLayout>
 
-    </LinearLayout>
+            <!-- Botão Vendas -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonCadastroCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_bg"
+                app:backgroundTint="#FF3F56"
+                app:rippleColor="#2D3748"
+                android:text="Cadastrar Cliente"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonCadastroProduto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_bg"
+                app:backgroundTint="#FF3F56"
+                app:rippleColor="#2D3748"
+                android:text="Cadastrar Produto"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
