@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cantinanassau.R;
 import com.example.cantinanassau.database.BancodeDados;
-import com.example.cantinanassau.models.Item;
+import com.example.cantinanassau.model.Item;
 
 public class CadastroProdutos extends AppCompatActivity {
 

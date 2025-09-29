@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.cantinanassau.models.Cliente;
-import com.example.cantinanassau.models.Item;
-import com.example.cantinanassau.models.Venda;
+import com.example.cantinanassau.model.Cliente;
+import com.example.cantinanassau.model.Item;
+import com.example.cantinanassau.model.Venda;
 
 import java.util.ArrayList;
 import java.util.List;

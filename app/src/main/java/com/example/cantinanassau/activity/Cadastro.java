@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cantinanassau.R;
 import com.example.cantinanassau.database.BancodeDados;
-import com.example.cantinanassau.models.Cliente;
+import com.example.cantinanassau.model.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;

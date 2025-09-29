@@ -1,4 +1,4 @@
-package com.example.cantinanassau.models;
+package com.example.cantinanassau.model;
 
 public class Item {
 
