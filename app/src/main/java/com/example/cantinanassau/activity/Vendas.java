@@ -1,9 +1,11 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.activity;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cantinanassau.R;
 
 public class Vendas extends AppCompatActivity {
     @Override

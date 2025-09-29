@@ -1,4 +1,4 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.activity;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cantinanassau.Models.Item;
+import com.example.cantinanassau.R;
+import com.example.cantinanassau.database.BancodeDados;
+import com.example.cantinanassau.models.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +114,7 @@ public class BuscarProdutos extends AppCompatActivity {
         @Override
         public ProdutoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_produto, parent, false); // usa o layout customizado
+                    .inflate(R.layout.list_item_produto, parent, false); // usa o layout customizado
             return new ProdutoViewHolder(v);
         }
 

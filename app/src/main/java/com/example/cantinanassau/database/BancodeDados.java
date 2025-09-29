@@ -1,4 +1,4 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.cantinanassau.Models.Cliente;
-import com.example.cantinanassau.Models.Item;
-import com.example.cantinanassau.Models.Venda;
+import com.example.cantinanassau.models.Cliente;
+import com.example.cantinanassau.models.Item;
+import com.example.cantinanassau.models.Venda;
 
 import java.util.ArrayList;
 import java.util.List;

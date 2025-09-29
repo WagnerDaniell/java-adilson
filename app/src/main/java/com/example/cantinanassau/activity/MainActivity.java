@@ -1,4 +1,4 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cantinanassau.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pag_inicial);
+        setContentView(R.layout.main_activity);
 
         btnCadastrar = findViewById(R.id.buttonCadastro);
         btnBuscar = findViewById(R.id.buttonBuscar);

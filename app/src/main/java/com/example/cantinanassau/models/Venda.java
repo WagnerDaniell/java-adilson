@@ -1,4 +1,4 @@
-package com.example.cantinanassau.Models;
+package com.example.cantinanassau.models;
 
 public class Venda {
     private int id;

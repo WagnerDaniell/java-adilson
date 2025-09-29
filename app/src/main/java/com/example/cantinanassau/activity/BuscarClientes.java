@@ -1,4 +1,4 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.activity;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -15,7 +15,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cantinanassau.Models.Cliente;
+import com.example.cantinanassau.R;
+import com.example.cantinanassau.database.BancodeDados;
+import com.example.cantinanassau.models.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,7 +125,7 @@ public class BuscarClientes extends AppCompatActivity {
         public ClienteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             // Infla o layout customizado para cada item da lista
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_cliente, parent, false);
+                    .inflate(R.layout.list_item_cliente, parent, false);
             return new ClienteViewHolder(v);
         }
 

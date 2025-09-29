@@ -14,7 +14,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,31 +24,31 @@
         </activity>
 
         <activity
-            android:name=".Cadastro"
+            android:name=".activity.Cadastro"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".MenuBuscar"
+            android:name=".activity.MenuBuscar"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".MenuCadastro"
+            android:name=".activity.MenuCadastro"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".CadastroProdutos"
+            android:name=".activity.CadastroProdutos"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".BuscarClientes"
+            android:name=".activity.BuscarClientes"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".BuscarProdutos"
+            android:name=".activity.BuscarProdutos"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Vendas"
+            android:name=".activity.Vendas"
             android:screenOrientation="portrait" />
 
     </application>

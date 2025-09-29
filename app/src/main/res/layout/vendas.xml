@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#E5E7EB"
     android:padding="32dp"
-    tools:context=".Vendas">
+    tools:context=".activity.Vendas">
 
     <!-- Título da tela -->
     <TextView

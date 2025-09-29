@@ -1,4 +1,4 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -9,9 +9,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cantinanassau.Models.Item;
-
-import java.io.Console;
+import com.example.cantinanassau.R;
+import com.example.cantinanassau.database.BancodeDados;
+import com.example.cantinanassau.models.Item;
 
 public class CadastroProdutos extends AppCompatActivity {
 

@@ -1,24 +1,21 @@
-package com.example.cantinanassau;
+package com.example.cantinanassau.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.TextView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cantinanassau.Models.Cliente;
-import com.example.cantinanassau.Models.Item;
+import com.example.cantinanassau.R;
+import com.example.cantinanassau.database.BancodeDados;
+import com.example.cantinanassau.models.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
