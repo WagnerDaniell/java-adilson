@@ -12,22 +12,45 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CantinaNassau"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Cadastro" />
-        <activity android:name=".MenuBuscar" />
-        <activity android:name=".MenuCadastro" />
-        <activity android:name=".CadastroProdutos" />
-        <activity android:name=".BuscarClientes" />
-        <activity android:name=".BuscarProdutos" />
-        <activity android:name=".Vendas" />
+
+        <activity
+            android:name=".Cadastro"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MenuBuscar"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".MenuCadastro"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".CadastroProdutos"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BuscarClientes"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".BuscarProdutos"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".Vendas"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
