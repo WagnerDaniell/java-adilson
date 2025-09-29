@@ -26,10 +26,10 @@ public class BancodeDados extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String Cliente = "CREATE TABLE IF NOT EXISTS TbCliente (" +
                 "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "Cpf INTEGER UNIQUE, " +
+                "Cpf INTEGER UNIQUE NOT NULL, " +
                 "Nome TEXT NOT NULL, " +
                 "Saldo REAL NOT NULL, " +
-                "Contato INTEGER " +
+                "Contato INTEGER NOT NULL" +
                 ")";
         db.execSQL(Cliente);
 
@@ -49,6 +49,7 @@ public class BancodeDados extends SQLiteOpenHelper {
                 "Valor_Item INTEGER NOT NULL, " +
                 "Sub_Total INTEGER NOT NULL, " +
                 "Valor_Total INTEGER NOT NULL, " +
+                "DataHora DATETIME DEFAULT CURRENT_TIMESTAMP, " +
                 "FOREIGN KEY (Id_Cliente) REFERENCES TbCliente(Id), " +
                 "FOREIGN KEY (Id_Item) REFERENCES TbItem(Id)" +
                 ")";
@@ -101,6 +102,7 @@ public class BancodeDados extends SQLiteOpenHelper {
         }
     }
 
+    //Não Pronta
     public void insertVenda(Venda venda){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

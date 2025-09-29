@@ -50,11 +50,9 @@ public class BuscarClientes extends AppCompatActivity {
         // Ação do botão voltar
         btnVoltar.setOnClickListener(v -> voltarParaTelaAnterior());
 
-        // ======== BUSCA NO BANCO DE DADOS ========
         BancodeDados db = new BancodeDados(this);
         listaClientes = db.getClientes(); // Pega a lista de clientes do banco
 
-        // ======== CONFIGURAÇÃO DO RECYCLERVIEW ========
         rvClientes.setLayoutManager(new LinearLayoutManager(this));
         // Inicializa o adapter com a lista de clientes e a ação de clique
         adapter = new ClienteAdapter(new ArrayList<>(listaClientes),
@@ -73,12 +71,10 @@ public class BuscarClientes extends AppCompatActivity {
         });
     }
 
-    // ===== MÉTODO PARA VOLTAR PARA A TELA ANTERIOR =====
     private void voltarParaTelaAnterior() {
         finish(); // Fecha a activity atual
     }
 
-    // ===== MÉTODO PARA FILTRAR A LISTA DE CLIENTES =====
     private void filtrarClientes(String texto) {
         List<Cliente> filtrados = new ArrayList<>();
         // Se o texto da busca estiver vazio, mostra todos os clientes
@@ -93,7 +89,6 @@ public class BuscarClientes extends AppCompatActivity {
                 }
             }
         }
-        // Atualiza a lista no adapter com os resultados filtrados
         adapter.updateList(filtrados);
     }
 
@@ -107,9 +102,6 @@ public class BuscarClientes extends AppCompatActivity {
         tvSaldo.setText(String.format(new Locale("pt", "BR"), "Saldo: R$ %.2f", c.getSaldo()));
     }
 
-    // ===================================================================
-    // ================== ADAPTER INTERNO PARA CLIENTES ==================
-    // ===================================================================
     private static class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ClienteViewHolder> {
 
         // Interface para tratar o clique em um item da lista
@@ -148,13 +140,12 @@ public class BuscarClientes extends AppCompatActivity {
             return clientes != null ? clientes.size() : 0;
         }
 
-        // Método para atualizar a lista do adapter e notificar a mudança
+        // Método ainda desabilitado - para atualizar a lista do adapter e notificar a mudança
         public void updateList(List<Cliente> novaLista) {
             clientes = new ArrayList<>(novaLista);
             notifyDataSetChanged();
         }
 
-        // ================== VIEWHOLDER INTERNO ==================
         static class ClienteViewHolder extends RecyclerView.ViewHolder {
             TextView tvNomeItem, tvCpfItem;
 
